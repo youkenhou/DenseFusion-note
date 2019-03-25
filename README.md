@@ -53,3 +53,11 @@ Note about DenseFusion: 6D Object Pose Estimation by Iterative Dense Fusion
 $L=\cfrac{1}{N}\sum L_i^Pc_i-w\log (ci)$，其中N是从`P`个特征向量中随机采样的数量，w是一个超参数。
 
 当某一个预测结果的置信度较低时，这个预测结果受到的惩罚就会比较少，但是这个置信度收到的惩罚就会较大。
+
+## 评价标准
+### ADD-S
+`[R'|t']`是预测出来的位姿，`[R|t]`是ground truth，ADD-S计算了3D模型上的点m经过`[R'|t']`变换后的坐标，与m距离最近的点m'经过`[R|t]`变换后的坐标之间的距离。
+### AUC
+在ADD-S曲线之下的面积，这个在PoseCNN这篇文章的实验部分中有展示是什么曲线，面积越大是越好的。
+### <2cm
+ADD-S<2cm的比例，越大表示越精确。
